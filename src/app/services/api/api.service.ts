@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-type Message  = {
+export type Message  = {
   from: string,
   content: string,
 };

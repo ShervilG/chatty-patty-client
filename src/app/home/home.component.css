@@ -1,0 +1,49 @@
+/* Center the content box */
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Style the header */
+.header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+}
+
+/* Style input and button */
+input[type="text"] {
+    width: 20%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 20%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style paragraph */
+p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+}

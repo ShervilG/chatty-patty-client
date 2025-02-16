@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="header">
+        <h1>
+            {{ title }}
+        </h1>
+    </div>
+    <div>
+        <input type="text" [(ngModel)]="name" placeholder="Type your name" />
+        <br>
+        <button (click)="registerName()">Set Name</button>
+        <p>{{ registrationResult }}</p>
+    </div>
+</div>
