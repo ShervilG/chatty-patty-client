@@ -12,6 +12,7 @@ import { NgClass, NgFor, NgForOf } from '@angular/common';
 })
 export class ChatComponent {
   userId: string | null = null;
+  to: string | null = null;
   messages: Message[] = [];
   newMessage: string = '';
   interval: any;
@@ -20,12 +21,15 @@ export class ChatComponent {
 
   ngOnInit() {
     const userId = this.route.snapshot.queryParamMap.get('userId');
-    if (userId) {
+    const to = this.route.snapshot.queryParamMap.get('to');
+
+    if (userId && to) {
       this.userId = userId;
+      this.to = to;
       
       this.interval = setInterval(() => {
         this.apiService.pollMessages(this.userId as string).subscribe((messages) => {
-          this.messages.concat(messages);
+          this.messages = this.messages.concat(messages);
         });
       }, 2000);
     }
@@ -36,12 +40,11 @@ export class ChatComponent {
   }
 
   sendMessage() {
-    if (this.userId && this.newMessage) {
-      this.apiService.sendMessage(this.userId, this.newMessage).subscribe(() => {
+    if (this.userId && this.newMessage && this.to) {
+      this.apiService.sendMessage(this.userId, this.to, this.newMessage).subscribe(() => {
         this.messages.push({from: 'me', content: this.newMessage});
+        this.newMessage = '';
       });
     }
-
-    this.newMessage = '';
   }
 }

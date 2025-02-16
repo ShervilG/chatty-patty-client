@@ -14,6 +14,7 @@ export class HomeComponent {
 
   title = 'Welcome to Chatty Patty';
   name: string = "";
+  to: string = "";
   registrationResult = "";
   
 
@@ -24,7 +25,7 @@ export class HomeComponent {
     }
 
     this.apiService.registerClient(this.name).subscribe((response) => {
-      this.router.navigate(['/chat'], {queryParams: {userId: this.name}});
+      this.router.navigate(['/chat'], {queryParams: {userId: this.name, to: this.to}});
     });
   }
 }

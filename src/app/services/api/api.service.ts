@@ -14,7 +14,7 @@ type GenericResponse = {
   providedIn: 'root'
 })
 export class ApiService {
-  private readonly baseUrl = 'https://4cd1-2401-4900-1c5a-4e15-da3a-ddff-fef1-f6ef.ngrok-free.app';
+  private readonly baseUrl = 'https://0cd2-2401-4900-1c5a-89db-da3a-ddff-fef1-f6ef.ngrok-free.app';
 
   constructor(private readonly httpClient: HttpClient) { }
 
@@ -22,8 +22,8 @@ export class ApiService {
     return this.httpClient.post<GenericResponse>(`${this.baseUrl}/register`, null, {headers: {'UserId': userId, 'ngrok-skip-browser-warning': 'true'}});
   }
 
-  public sendMessage(userId: string, message: string) {
-    return this.httpClient.post<GenericResponse>(`${this.baseUrl}/message/send`, {'to': userId, 'content': message}, {headers: {'UserId': userId, 'ngrok-skip-browser-warning': 'true'}});
+  public sendMessage(userId: string, to: string, message: string) {
+    return this.httpClient.post<GenericResponse>(`${this.baseUrl}/message/send`, {'to': to, 'content': message}, {headers: {'UserId': userId, 'ngrok-skip-browser-warning': 'true'}});
   }
 
   public pollMessages(userId: string) {

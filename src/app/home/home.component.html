@@ -7,6 +7,8 @@
     <div>
         <input type="text" [(ngModel)]="name" placeholder="Type your name" />
         <br>
+        <input type="text" [(ngModel)]="to" placeholder="Type receivers name" />
+        <br>
         <button (click)="registerName()">Set Name</button>
         <p>{{ registrationResult }}</p>
     </div>
